@@ -3,6 +3,9 @@
 The problem of how to determine if opened brackets have been closed when given a string of brackets. I would 
 imagine this to be a common function for syntax validators and IDEs.
 
+
+Here's a solution in Scala:
+
 ```
 /*
  * Given a string containing just the characters '(', ')', '{', '}', '[' and ']', returns
@@ -43,3 +46,4 @@ def isValid(s: String): Boolean = {
 }
 
 ```
+I'm sure it could be improved.
