@@ -1,4 +1,5 @@
 ## Longest Common Prefix
+For when you have a bunch of strings and want to find how much they all overlap at the start. For example, `["dog","doge","doug","dug"]` has an LCP of only "d".
 
 In Scala,
 ```
@@ -43,3 +44,5 @@ private def recurse(prefix: String = "", strings: Array[String]): String = {
     }
 }
 ```
+
+There are also non-recursive ways to solve this, and I'm sure this could be improved to not need the second function. This was just a limitation of the platform I was writing this on. In some languages, where immutability is less of a concern, higher-level vars could be mutated to store the prefix as it's identified.
