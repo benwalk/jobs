@@ -1,5 +1,4 @@
 ## Coding Questions
----
 
 I find it helpful to practice simple programming problems on platforms like [HackerRank](https://www.hackerrank.com/) and [LeetCode](https://leetcode.com/)
 when preparing for interviews, learning a new language, or just to sharpen or refresh those skills.
