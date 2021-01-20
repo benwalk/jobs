@@ -1,5 +1,8 @@
 # Jumping On Clouds
-I think I've seen a variation of this problem where a frog is trying to jump out of a well. The key is to realize that a large jump at the end will put you out of bounds.
+I think I've seen a variation of this problem where a frog is trying to jump out of a well. The key is to realize that a large jump at the end will put you out of bounds, or - in this case - is also not needed.
+
+The rules:
+> There is a new mobile game that starts with consecutively numbered clouds. Some of the clouds are thunderheads and others are cumulus. The player can jump on any cumulus cloud having a number that is equal to the number of the current cloud plus  or . The player must avoid the thunderheads. Determine the minimum number of jumps it will take to jump from the starting postion to the last cloud. It is always possible to win the game.
 
 In Java,
 ```
@@ -11,29 +14,20 @@ In Java,
  * 
  * Assumptions:
  * - `c` is formatted correctly (number of clouds -> \n -> array of [0,1]+)
+ * - The game can always be won.
  */
 static int jumpingOnClouds(int[] c) throws IllegalArgumentException {
 
     int numClouds = c.length;
     System.out.println("There are "+ numClouds +" clouds this game.");
     int numJumps = 0;
-    for(int i = 0; i < numClouds; i++ ) {
+    for(int i = 0; i < numClouds - 1; i++ ) {
         System.out.print("From Cloud " + i);
 
-        // need to start from a safe cloud
-        if (i == 0 && c[i] != 0) {
-            System.out.println(" you lose. (But it's not your fault!)");
-            throw new IllegalArgumentException();
-        }
-
-        if (i == numClouds - 1) {
-            // landed on last cloud, no jump needed
-            System.out.println(" you've won!");
-        }
         // check double jump
-        else if (i+2 < numClouds && c[i+2] == 0) {
+        if (i+2 < numClouds && c[i+2] == 0) {
             System.out.println(", double jumping to Cloud " +(i+2) +".");
-            i++; // the loop increments once, this achieves the double jump
+            i++;
             numJumps++;
         }
         // otherwise, single jump is the default
